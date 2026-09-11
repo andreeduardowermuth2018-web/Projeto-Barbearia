@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Premium</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- Cabeçalho principal do site -->
+    <header class="header">
+        <div class="container header__container">
+            <!-- Nome da barbearia e link para o início da página -->
+            <a class="header__logo" href="#hero">Barbearia Premium</a>
+
+            <!-- Botão preparado para controlar o menu em celulares via JavaScript -->
+            <button
+                class="header__menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-controls="menu-principal"
+                aria-expanded="false"
+                title="Abrir menu"
+            >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <!-- Navegação principal entre as seções do site -->
+            <nav id="menu-principal" class="header__nav" aria-label="Navegação principal">
+                <ul class="header__menu">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#equipe">Equipe</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#horario">Horários</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <!-- Chamada para ação direcionada à seção de contato -->
+            <a class="botao header__agendamento" href="#contato">Agendar Horário</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal com as seções usadas pela navegação -->
+    <main>
+        <!-- Seção de destaque e apresentação principal da barbearia -->
+        <section id="hero" class="hero">
+            <div class="container hero__conteudo">
+                <!-- Título principal que comunica a proposta do negócio -->
+                <h1 class="hero__titulo">Seu estilo começa com um corte de excelência</h1>
+
+                <!-- Frase de apoio que reforça a experiência oferecida -->
+                <p class="hero__subtitulo">Tradição, cuidado e personalidade em cada detalhe.</p>
+
+                <!-- Chamada para ação direcionada à seção de contato -->
+                <a class="botao hero__cta" href="#contato">Agendar Agora</a>
+            </div>
+        </section>
+
+        <!-- Seção que apresenta a história e a missão da barbearia -->
+        <section id="sobre" class="sobre">
+            <div class="container sobre__conteudo">
+                <!-- Agrupa o título e o texto institucional da seção -->
+                <article class="sobre__texto">
+                    <!-- Título que identifica o assunto da seção -->
+                    <h2 class="sobre__titulo">Sobre a Barbearia</h2>
+
+                    <!-- Texto institucional sobre a trajetória e os valores do negócio -->
+                    <p>
+                        A Barbearia Premium nasceu com a missão de unir a tradição da
+                        barbearia clássica ao cuidado e ao estilo contemporâneo. Mais do
+                        que oferecer cortes e cuidados com a barba, buscamos criar uma
+                        experiência acolhedora, personalizada e marcante para cada cliente.
+                    </p>
+                </article>
+
+                <!-- Imagem ilustrativa do ambiente da barbearia -->
+                <figure class="sobre__figura">
+                    <img
+                        class="sobre__imagem"
+                        src="imagens/sobre.jpg"
+                        alt="Interior da Barbearia Premium"
+                    >
+                </figure>
+            </div>
+        </section>
+
+        <!-- Seção que apresenta os serviços e seus respectivos preços -->
+        <section id="servicos" class="servicos">
+            <div class="container">
+            <!-- Título principal da seção de serviços -->
+            <h2 class="servicos__titulo">Nossos Serviços</h2>
+
+            <!-- Lista de cards preparada para receber um layout em grid no CSS -->
+            <ul class="servicos__lista">
+                <li class="servicos__item">
+                    <!-- Card com as informações de um serviço -->
+                    <article class="servico-card">
+                        <h3 class="servico-card__titulo">Corte Masculino</h3>
+                        <p class="servico-card__descricao">
+                            Corte personalizado de acordo com seu estilo e formato de rosto.
+                        </p>
+                        <p class="servico-card__preco">
+                            <strong>R$ 50,00</strong>
+                        </p>
+                    </article>
+                </li>
+
+                <li class="servicos__item">
+                    <!-- Card com as informações de um serviço -->
+                    <article class="servico-card">
+                        <h3 class="servico-card__titulo">Barba</h3>
+                        <p class="servico-card__descricao">
+                            Modelagem e acabamento da barba com toalha quente.
+                        </p>
+                        <p class="servico-card__preco">
+                            <strong>R$ 35,00</strong>
+                        </p>
+                    </article>
+                </li>
+
+                <li class="servicos__item">
+                    <!-- Card com as informações de um serviço -->
+                    <article class="servico-card">
+                        <h3 class="servico-card__titulo">Corte + Barba</h3>
+                        <p class="servico-card__descricao">
+                            Experiência completa com corte e barba no mesmo atendimento.
+                        </p>
+                        <p class="servico-card__preco">
+                            <strong>R$ 75,00</strong>
+                        </p>
+                    </article>
+                </li>
+
+                <li class="servicos__item">
+                    <!-- Card com as informações de um serviço -->
+                    <article class="servico-card">
+                        <h3 class="servico-card__titulo">Sobrancelha</h3>
+                        <p class="servico-card__descricao">
+                            Limpeza e alinhamento para um visual mais definido.
+                        </p>
+                        <p class="servico-card__preco">
+                            <strong>R$ 20,00</strong>
+                        </p>
+                    </article>
+                </li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- Seção que apresenta os profissionais da barbearia -->
+        <section id="equipe" class="equipe">
+            <div class="container">
+                <h2 class="equipe__titulo">Nossa Equipe</h2>
+
+                <!-- Lista de profissionais preparada para receber um layout em grid -->
+                <ul class="equipe__lista">
+                <li class="equipe__item">
+                    <article class="profissional-card">
+                        <img
+                            class="profissional-card__imagem"
+                            src="imagens/equipe-1.jpg"
+                            alt="Retrato do barbeiro Lucas Almeida"
+                        >
+                        <h3 class="profissional-card__nome">Lucas Almeida</h3>
+                        <p class="profissional-card__especialidade">Especialista em cortes clássicos</p>
+                    </article>
+                </li>
+
+                <li class="equipe__item">
+                    <article class="profissional-card">
+                        <img
+                            class="profissional-card__imagem"
+                            src="imagens/equipe-2.jpg"
+                            alt="Retrato do barbeiro Rafael Santos"
+                        >
+                        <h3 class="profissional-card__nome">Rafael Santos</h3>
+                        <p class="profissional-card__especialidade">Especialista em barba e visagismo</p>
+                    </article>
+                </li>
+
+                <li class="equipe__item">
+                    <article class="profissional-card">
+                        <img
+                            class="profissional-card__imagem"
+                            src="imagens/equipe-3.jpg"
+                            alt="Retrato do barbeiro Bruno Oliveira"
+                        >
+                        <h3 class="profissional-card__nome">Bruno Oliveira</h3>
+                        <p class="profissional-card__especialidade">Especialista em cortes modernos</p>
+                    </article>
+                </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção visual com trabalhos realizados e detalhes do ambiente -->
+        <section id="galeria" class="galeria">
+            <div class="container">
+                <h2 class="galeria__titulo">Galeria</h2>
+
+                <!-- Conjunto de imagens preparado para receber um layout em grid -->
+                <ul class="galeria__lista">
+                <li class="galeria__item">
+                    <figure class="galeria__figura">
+                        <img src="imagens/galeria-1.jpg" alt="Corte masculino clássico finalizado">
+                        <figcaption>Corte clássico</figcaption>
+                    </figure>
+                </li>
+                <li class="galeria__item">
+                    <figure class="galeria__figura">
+                        <img src="imagens/galeria-2.jpg" alt="Barba modelada e finalizada">
+                        <figcaption>Modelagem de barba</figcaption>
+                    </figure>
+                </li>
+                <li class="galeria__item">
+                    <figure class="galeria__figura">
+                        <img src="imagens/galeria-3.jpg" alt="Corte masculino moderno com degradê">
+                        <figcaption>Corte degradê</figcaption>
+                    </figure>
+                </li>
+                <li class="galeria__item">
+                    <figure class="galeria__figura">
+                        <img src="imagens/galeria-4.jpg" alt="Área de atendimento da barbearia">
+                        <figcaption>Área de atendimento</figcaption>
+                    </figure>
+                </li>
+                <li class="galeria__item">
+                    <figure class="galeria__figura">
+                        <img src="imagens/galeria-5.jpg" alt="Cadeiras e espelhos no interior da barbearia">
+                        <figcaption>Nosso espaço</figcaption>
+                    </figure>
+                </li>
+                <li class="galeria__item">
+                    <figure class="galeria__figura">
+                        <img src="imagens/galeria-6.jpg" alt="Produtos profissionais usados nos atendimentos">
+                        <figcaption>Produtos profissionais</figcaption>
+                    </figure>
+                </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção com avaliações que reforçam a confiança na barbearia -->
+        <section id="depoimentos" class="depoimentos">
+            <div class="container">
+                <h2 class="depoimentos__titulo">O que nossos clientes dizem</h2>
+
+                <!-- Lista de depoimentos de clientes -->
+                <ul class="depoimentos__lista">
+                <li class="depoimentos__item">
+                    <article class="depoimento-card">
+                        <h3 class="depoimento-card__cliente">Marcos Silva</h3>
+                        <blockquote class="depoimento-card__texto">
+                            <p>Atendimento excelente, ambiente agradável e corte impecável.</p>
+                        </blockquote>
+                    </article>
+                </li>
+                <li class="depoimentos__item">
+                    <article class="depoimento-card">
+                        <h3 class="depoimento-card__cliente">João Pereira</h3>
+                        <blockquote class="depoimento-card__texto">
+                            <p>A equipe entende exatamente o estilo que o cliente procura.</p>
+                        </blockquote>
+                    </article>
+                </li>
+                <li class="depoimentos__item">
+                    <article class="depoimento-card">
+                        <h3 class="depoimento-card__cliente">Carlos Mendes</h3>
+                        <blockquote class="depoimento-card__texto">
+                            <p>Meu lugar preferido para cuidar do cabelo e da barba.</p>
+                        </blockquote>
+                    </article>
+                </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção para solicitar agendamentos e consultar informações de contato -->
+        <section id="contato" class="contato">
+            <div class="container">
+                <h2 class="contato__titulo">Contato e Agendamento</h2>
+
+            <!-- Formulário com os dados necessários para solicitar um horário -->
+            <form class="agendamento-form" action="#" method="post">
+                <fieldset class="agendamento-form__campos">
+                    <legend>Solicite seu horário</legend>
+
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" autocomplete="name" required>
+
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" autocomplete="tel" required>
+
+                    <label for="servico">Serviço desejado</label>
+                    <select id="servico" name="servico" required>
+                        <option value="">Selecione um serviço</option>
+                        <option value="corte">Corte Masculino</option>
+                        <option value="barba">Barba</option>
+                        <option value="corte-barba">Corte + Barba</option>
+                        <option value="sobrancelha">Sobrancelha</option>
+                    </select>
+
+                    <label for="data">Data</label>
+                    <input type="date" id="data" name="data" required>
+
+                    <label for="hora">Horário</label>
+                    <input type="time" id="hora" name="hora" required>
+                </fieldset>
+
+                <button type="submit">Solicitar Agendamento</button>
+            </form>
+
+            <!-- Informações para contato direto com a barbearia -->
+            <address class="contato__informacoes">
+                <h3>Fale conosco</h3>
+                <p>Telefone: <a href="tel:+5511999999999">(11) 99999-9999</a></p>
+                <p>E-mail: <a href="mailto:contato@barbeariapremium.com.br">contato@barbeariapremium.com.br</a></p>
+                <p>Endereço: Rua dos Barbeiros, 123 - Centro, São Paulo - SP</p>
+            </address>
+
+            <!-- Mapa incorporado com a localização aproximada da barbearia -->
+            <iframe
+                class="contato__mapa"
+                src="https://www.google.com/maps?q=Rua%20dos%20Barbeiros%20123%20Sao%20Paulo&output=embed"
+                title="Localização da Barbearia Premium no mapa"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            </div>
+        </section>
+
+        <!-- Seção que informa os dias e horários de atendimento -->
+        <section id="horario" class="horario">
+            <div class="container">
+                <h2 class="horario__titulo">Horário de Funcionamento</h2>
+
+                <!-- Área que permite rolagem horizontal da tabela em telas estreitas -->
+                <div class="horario__tabela-wrapper">
+                    <!-- Tabela com os horários organizados por dia da semana -->
+                    <table class="horario__tabela">
+                <caption>Dias e horários de atendimento da Barbearia Premium</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-dias="segunda">
+                        <th scope="row">Segunda-feira</th>
+                        <td>Fechado</td>
+                    </tr>
+                    <tr data-dias="terca quarta quinta sexta">
+                        <th scope="row">Terça a sexta-feira</th>
+                        <td>09h às 19h</td>
+                    </tr>
+                    <tr data-dias="sabado">
+                        <th scope="row">Sábado</th>
+                        <td>08h às 18h</td>
+                    </tr>
+                    <tr data-dias="domingo">
+                        <th scope="row">Domingo</th>
+                        <td>09h às 13h</td>
+                    </tr>
+                </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé com navegação complementar, redes sociais e direitos autorais -->
+    <footer class="footer">
+        <div class="container footer__conteudo">
+        <!-- Menu resumido para facilitar a navegação no final da página -->
+        <nav class="footer__navegacao" aria-label="Navegação do rodapé">
+            <ul>
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#equipe">Equipe</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#horario">Horários</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Links externos para os perfis sociais da barbearia -->
+        <nav class="footer__redes" aria-label="Redes sociais">
+            <ul>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            </ul>
+        </nav>
+
+        <!-- Informação legal com o ano atual -->
+        <p class="footer__copyright">
+            <small>&copy; 2026 Barbearia Premium. Todos os direitos reservados.</small>
+        </p>
+        </div>
+    </footer>
+
+    <!-- Botão controlado pelo JavaScript para retornar ao início da página -->
+    <button class="botao-voltar-topo" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">
+        &uarr;
+    </button>
+</body>
+</html>

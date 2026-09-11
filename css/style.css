@@ -1,0 +1,1116 @@
+/* ===== 1. RESET E BASE ===== */
+/* Importa as fontes usadas nos textos e títulos do site. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap");
+
+/* Centraliza as configurações visuais para facilitar futuras alterações. */
+:root {
+    /* Paleta principal da identidade visual. */
+    --cor-primaria: #111111;
+    --cor-secundaria: #292421;
+    --cor-destaque: #d4a84f;
+    --cor-destaque-escura: #a97828;
+    --cor-apoio: #7a1f2b;
+    --cor-texto: #f5f2eb;
+    --cor-texto-suave: #c9c3b8;
+    --cor-fundo: #181716;
+    --cor-fundo-claro: #f4f1ea;
+    --cor-superficie: #ffffff;
+    --cor-borda-campo: #a8a29a;
+    --cor-header: rgba(17, 17, 17, 0.96);
+    --cor-overlay-inicio: rgba(17, 17, 17, 0.72);
+    --cor-overlay-fim: rgba(17, 17, 17, 0.86);
+    --cor-destaque-18: rgba(212, 168, 79, 0.18);
+    --cor-destaque-20: rgba(212, 168, 79, 0.2);
+    --cor-destaque-25: rgba(212, 168, 79, 0.25);
+    --cor-destaque-30: rgba(212, 168, 79, 0.3);
+    --cor-destaque-35: rgba(212, 168, 79, 0.35);
+    --cor-texto-05: rgba(245, 242, 235, 0.05);
+    --cor-texto-10: rgba(245, 242, 235, 0.1);
+    --cor-secundaria-12: rgba(41, 36, 33, 0.12);
+    --cor-secundaria-14: rgba(41, 36, 33, 0.14);
+    --sombra-escura-10: rgba(17, 17, 17, 0.1);
+    --sombra-escura-18: rgba(17, 17, 17, 0.18);
+    --sombra-escura-20: rgba(17, 17, 17, 0.2);
+    --sombra-preta-18: rgba(0, 0, 0, 0.18);
+    --sombra-preta-20: rgba(0, 0, 0, 0.2);
+    --sombra-preta-32: rgba(0, 0, 0, 0.32);
+
+    /* Famílias tipográficas com alternativas locais de segurança. */
+    --fonte-principal: "Inter", Arial, sans-serif;
+    --fonte-titulos: "Oswald", "Arial Narrow", sans-serif;
+
+    /* Escala tipográfica reutilizável. */
+    --texto-pequeno: 0.875rem;
+    --texto-base: 1rem;
+    --titulo-pequeno: 1.5rem;
+    --titulo-medio: 2rem;
+    --titulo-grande: 2.75rem;
+
+    /* Escala de espaçamentos para manter o ritmo visual consistente. */
+    --espaco-1: 0.5rem;
+    --espaco-2: 1rem;
+    --espaco-3: 1.5rem;
+    --espaco-4: 2rem;
+    --espaco-5: 3rem;
+    --espaco-6: 4rem;
+}
+
+/* Remove espaçamentos nativos e torna o cálculo de dimensões previsível. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Mantém a rolagem entre as âncoras da página mais suave. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Define a aparência global e a tipografia base de toda a página. */
+body {
+    min-height: 100vh;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    font-size: var(--texto-base);
+    line-height: 1.6;
+    letter-spacing: 0;
+}
+
+/*
+ * Centraliza o conteúdo, limita sua largura em telas grandes e mantém
+ * um espaço lateral seguro em dispositivos menores.
+ */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--espaco-2);
+}
+
+/* Padroniza a aparência inicial dos títulos. */
+h1,
+h2,
+h3 {
+    font-family: var(--fonte-titulos);
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+
+h1 {
+    font-size: var(--titulo-grande);
+}
+
+h2 {
+    font-size: var(--titulo-medio);
+}
+
+h3 {
+    font-size: var(--titulo-pequeno);
+}
+
+/* Evita que imagens ultrapassem a largura de seus contêineres. */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove marcadores para permitir listas de navegação e cards personalizadas. */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Faz links herdarem a cor do contexto até receberem estilos específicos. */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Mantém campos e botões consistentes com a fonte geral do site. */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* Evita que o cabeçalho sticky cubra o início das seções ao navegar por links. */
+section {
+    scroll-margin-top: 6rem;
+}
+
+/* ===== COMPONENTES REUTILIZÁVEIS ===== */
+/* Cria o estilo reutilizável dos principais botões e chamadas para ação. */
+.botao {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espaco-1) var(--espaco-3);
+    border: 2px solid var(--cor-destaque);
+    border-radius: 4px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.botao:hover {
+    border-color: var(--cor-destaque-escura);
+    background-color: var(--cor-destaque-escura);
+    color: var(--cor-texto);
+}
+
+/* ===== 2. HEADER ===== */
+/* Mantém o cabeçalho visível no topo e separado do conteúdo da página. */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding-block: var(--espaco-2);
+    border-bottom: 1px solid var(--cor-destaque-25);
+    background-color: var(--cor-header);
+    transition: padding 200ms ease, box-shadow 200ms ease;
+}
+
+.header--rolagem {
+    padding-block: var(--espaco-1);
+    box-shadow: 0 0.5rem 1.5rem var(--sombra-preta-20);
+}
+
+/* Distribui logo, navegação e botão na mesma linha. */
+.header__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-2);
+}
+
+/* Destaca o nome da barbearia como principal elemento de marca. */
+.header__logo {
+    color: var(--cor-destaque);
+    font-family: var(--fonte-titulos);
+    font-size: var(--titulo-pequeno);
+    font-weight: 700;
+}
+
+/* O controle móvel permanece oculto até a largura definida para celulares. */
+.header__menu-toggle {
+    display: none;
+}
+
+/* Organiza horizontalmente os links do menu principal. */
+.header__menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espaco-2);
+}
+
+/* Aplica uma mudança sutil de cor aos links durante a interação. */
+.header__menu a {
+    color: var(--cor-texto);
+    font-size: var(--texto-pequeno);
+    font-weight: 600;
+    transition: color 200ms ease;
+}
+
+.header__menu a:hover {
+    color: var(--cor-destaque);
+}
+
+/* Evita que o texto do botão de agendamento seja quebrado em duas linhas. */
+.header__agendamento {
+    white-space: nowrap;
+}
+
+/* ===== 3. HERO ===== */
+/*
+ * Combina a foto de fundo com uma camada escura para manter o texto legível.
+ * A imagem pode ser substituída posteriormente sem alterar o restante do estilo.
+ */
+.hero {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding-block: var(--espaco-6);
+    background-image:
+        linear-gradient(var(--cor-overlay-inicio), var(--cor-overlay-fim)),
+        url("../imagens/hero.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+/* Centraliza e limita a largura dos textos de apresentação. */
+.hero__conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espaco-3);
+    max-width: 800px;
+    text-align: center;
+}
+
+.hero__titulo {
+    color: var(--cor-texto);
+    font-size: var(--titulo-grande);
+}
+
+.hero__subtitulo {
+    max-width: 620px;
+    color: var(--cor-texto-suave);
+    font-size: 1.125rem;
+}
+
+/* Separa visualmente a ação principal dos textos do Hero. */
+.hero__cta {
+    margin-top: var(--espaco-1);
+}
+
+/* ===== 4. SOBRE ===== */
+/* Cria uma faixa clara para diferenciar a história das áreas escuras do site. */
+.sobre {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-primaria);
+}
+
+/*
+ * Divide texto e imagem em duas colunas flexíveis. O flex-wrap empilha os
+ * elementos automaticamente quando não existe espaço horizontal suficiente.
+ */
+.sobre__conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--espaco-5);
+}
+
+/* Permite que o texto cresça sem ficar estreito demais para uma boa leitura. */
+.sobre__texto {
+    flex: 1 1 320px;
+}
+
+.sobre__titulo {
+    margin-bottom: var(--espaco-3);
+    color: var(--cor-apoio);
+}
+
+.sobre__texto p {
+    max-width: 60ch;
+    color: var(--cor-secundaria);
+}
+
+/* Controla a coluna visual e impede que a imagem cresça excessivamente. */
+.sobre__figura {
+    flex: 1 1 320px;
+    width: 100%;
+    max-width: 520px;
+}
+
+/* Mantém proporção estável e recorta a foto sem distorção. */
+.sobre__imagem {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 1rem 2rem var(--sombra-escura-20);
+}
+
+/* ===== 5. SERVIÇOS ===== */
+/* Define o respiro vertical da seção de serviços. */
+.servicos {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-fundo);
+}
+
+.servicos__titulo {
+    margin-bottom: var(--espaco-4);
+    color: var(--cor-destaque);
+    text-align: center;
+}
+
+/* Distribui automaticamente os cards conforme a largura disponível. */
+.servicos__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espaco-3);
+}
+
+/* Faz o card ocupar toda a altura disponível dentro de sua célula. */
+.servicos__item {
+    display: flex;
+}
+
+/* Delimita cada serviço com fundo, borda e profundidade discretos. */
+.servico-card {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: var(--espaco-3);
+    border: 1px solid var(--cor-destaque-30);
+    border-radius: 6px;
+    background-color: var(--cor-secundaria);
+    box-shadow: 0 0.5rem 1rem var(--sombra-preta-18);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+/* Eleva levemente o card para indicar interação visual. */
+.servico-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 1rem 1.75rem var(--sombra-preta-32);
+}
+
+.servico-card__titulo {
+    margin-bottom: var(--espaco-2);
+    color: var(--cor-texto);
+}
+
+.servico-card__descricao {
+    margin-bottom: var(--espaco-3);
+    color: var(--cor-texto-suave);
+}
+
+/* Mantém os preços alinhados na base e visualmente destacados. */
+.servico-card__preco {
+    margin-top: auto;
+    color: var(--cor-destaque);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* ===== 6. EQUIPE ===== */
+/* Separa visualmente a equipe e oferece espaço confortável aos retratos. */
+.equipe {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-primaria);
+}
+
+.equipe__titulo {
+    margin-bottom: var(--espaco-4);
+    color: var(--cor-apoio);
+    text-align: center;
+}
+
+/* Cria quantas colunas couberem sem deixar os cards estreitos demais. */
+.equipe__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--espaco-3);
+}
+
+/* Centraliza as informações de cada profissional em um card uniforme. */
+.profissional-card {
+    height: 100%;
+    padding: var(--espaco-4) var(--espaco-3);
+    border: 1px solid var(--cor-secundaria-12);
+    border-radius: 6px;
+    background-color: var(--cor-superficie);
+    box-shadow: 0 0.5rem 1.25rem var(--sombra-escura-10);
+    text-align: center;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+/* Cria retratos circulares de tamanho estável, sem distorcer as fotos. */
+.profissional-card__imagem {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto var(--espaco-3);
+    border: 4px solid var(--cor-destaque);
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 200ms ease;
+}
+
+.profissional-card__nome {
+    margin-bottom: var(--espaco-1);
+    color: var(--cor-primaria);
+}
+
+.profissional-card__especialidade {
+    color: var(--cor-secundaria);
+}
+
+/* Eleva o card e amplia discretamente a foto durante o hover. */
+.profissional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem var(--sombra-escura-18);
+}
+
+.profissional-card:hover .profissional-card__imagem {
+    transform: scale(1.04);
+}
+
+/* ===== 7. GALERIA ===== */
+/* Mantém a galeria em uma faixa escura para valorizar as fotografias. */
+.galeria {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-secundaria);
+}
+
+.galeria__titulo {
+    margin-bottom: var(--espaco-4);
+    color: var(--cor-destaque);
+    text-align: center;
+}
+
+/* Organiza imagens de proporção igual em uma grade responsiva. */
+.galeria__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--espaco-2);
+}
+
+/* Recorta o zoom da imagem dentro dos limites arredondados do item. */
+.galeria__figura {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: var(--cor-primaria);
+}
+
+.galeria__figura img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 300ms ease, filter 300ms ease;
+}
+
+/* Oferece um retorno visual sem alterar as dimensões da grade. */
+.galeria__figura:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.78);
+}
+
+.galeria__figura figcaption {
+    padding: var(--espaco-1) var(--espaco-2);
+    color: var(--cor-texto-suave);
+    font-size: var(--texto-pequeno);
+    text-align: center;
+}
+
+/* ===== 8. DEPOIMENTOS ===== */
+/* Oferece uma área sóbria para destacar a opinião dos clientes. */
+.depoimentos {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-primaria);
+}
+
+.depoimentos__titulo {
+    margin-bottom: var(--espaco-4);
+    color: var(--cor-destaque);
+    text-align: center;
+}
+
+/* Distribui os depoimentos em colunas que se adaptam ao espaço disponível. */
+.depoimentos__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: var(--espaco-3);
+}
+
+/* Faz cada item acompanhar a altura do maior card da mesma linha. */
+.depoimentos__item {
+    display: flex;
+}
+
+.depoimentos--carrossel .depoimentos__item {
+    display: none;
+}
+
+.depoimentos--carrossel .depoimentos__item.depoimento-ativo {
+    display: flex;
+    max-width: 720px;
+    margin-inline: auto;
+    grid-column: 1 / -1;
+}
+
+/* Cria profundidade e reserva espaço confortável para o relato. */
+.depoimento-card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: var(--espaco-4) var(--espaco-3) var(--espaco-3);
+    border-left: 3px solid var(--cor-destaque);
+    border-radius: 6px;
+    background-color: var(--cor-secundaria);
+    box-shadow: 0 0.75rem 1.5rem var(--sombra-preta-20);
+}
+
+/* Adiciona aspas decorativas sem interferir na leitura do conteúdo. */
+.depoimento-card::before {
+    position: absolute;
+    top: 0;
+    right: var(--espaco-2);
+    color: var(--cor-destaque-20);
+    content: "“";
+    font-family: Georgia, serif;
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.depoimento-card__cliente {
+    position: relative;
+    margin-bottom: var(--espaco-2);
+    color: var(--cor-destaque);
+    font-weight: 700;
+}
+
+.depoimento-card__texto {
+    position: relative;
+    color: var(--cor-texto-suave);
+    font-style: italic;
+}
+
+/* ===== 9. FORMULÁRIO DE CONTATO ===== */
+/* Contrasta a área de conversão e facilita a leitura dos campos. */
+.contato {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-primaria);
+}
+
+.contato__titulo {
+    margin-bottom: var(--espaco-4);
+    color: var(--cor-apoio);
+    text-align: center;
+}
+
+/* Centraliza o formulário e o apresenta como uma superfície bem delimitada. */
+.agendamento-form {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+    padding: var(--espaco-4);
+    border: 1px solid var(--cor-secundaria-14);
+    border-radius: 6px;
+    background-color: var(--cor-superficie);
+    box-shadow: 0 0.75rem 1.75rem var(--sombra-escura-10);
+}
+
+/* Organiza rótulos e controles em uma sequência vertical consistente. */
+.agendamento-form__campos {
+    display: grid;
+    gap: var(--espaco-1);
+    margin: 0 0 var(--espaco-3);
+    border: 0;
+}
+
+.agendamento-form__campos legend {
+    margin-bottom: var(--espaco-2);
+    color: var(--cor-apoio);
+    font-family: var(--fonte-titulos);
+    font-size: var(--titulo-pequeno);
+    font-weight: 600;
+}
+
+.agendamento-form label {
+    margin-top: var(--espaco-1);
+    color: var(--cor-secundaria);
+    font-weight: 600;
+}
+
+/* Uniformiza os controles e cria uma área de toque confortável. */
+.agendamento-form input,
+.agendamento-form select,
+.agendamento-form textarea {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem var(--espaco-2);
+    border: 1px solid var(--cor-borda-campo);
+    border-radius: 4px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria);
+}
+
+.agendamento-form textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+/* Substitui o foco padrão por um indicador nítido e acessível. */
+.agendamento-form input:focus,
+.agendamento-form select:focus,
+.agendamento-form textarea:focus {
+    border-color: var(--cor-destaque-escura);
+    outline: 3px solid var(--cor-destaque-35);
+    outline-offset: 1px;
+}
+
+/* Destaca a ação final do formulário e sinaliza que ela é clicável. */
+.agendamento-form button {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem var(--espaco-3);
+    border: 2px solid var(--cor-destaque);
+    border-radius: 4px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.agendamento-form button:hover {
+    border-color: var(--cor-destaque-escura);
+    background-color: var(--cor-destaque-escura);
+    color: var(--cor-texto);
+}
+
+/* Mantém as informações de contato alinhadas à largura do formulário. */
+.contato__informacoes {
+    width: 100%;
+    max-width: 720px;
+    margin: var(--espaco-4) auto;
+    color: var(--cor-secundaria);
+    font-style: normal;
+}
+
+.contato__informacoes h3 {
+    margin-bottom: var(--espaco-2);
+    color: var(--cor-apoio);
+}
+
+.contato__informacoes a {
+    color: var(--cor-apoio);
+    font-weight: 600;
+}
+
+/* Ajusta o mapa à largura do conteúdo e remove a borda nativa do iframe. */
+.contato__mapa {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: 360px;
+    margin-inline: auto;
+    border: 0;
+    border-radius: 6px;
+}
+
+/* ===== 10. HORÁRIO DE FUNCIONAMENTO ===== */
+/* Cria uma faixa escura e organizada para os horários de atendimento. */
+.horario {
+    padding-block: var(--espaco-6);
+    background-color: var(--cor-fundo);
+}
+
+.horario__titulo {
+    margin-bottom: var(--espaco-4);
+    color: var(--cor-destaque);
+    text-align: center;
+}
+
+/* Permite consultar a tabela sem cortar informações em telas estreitas. */
+.horario__tabela-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Centraliza a tabela e remove espaços entre as bordas das células. */
+.horario__tabela {
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid var(--cor-destaque-30);
+    border-collapse: collapse;
+    border-radius: 6px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+}
+
+/* Mantém a legenda disponível para leitores de tela sem exibi-la visualmente. */
+.horario__tabela caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.horario__tabela th,
+.horario__tabela td {
+    padding: var(--espaco-2) var(--espaco-3);
+    border-bottom: 1px solid var(--cor-texto-10);
+    text-align: left;
+}
+
+.horario__tabela thead th {
+    background-color: var(--cor-apoio);
+    color: var(--cor-texto);
+    font-family: var(--fonte-titulos);
+    font-size: 1.125rem;
+}
+
+/* Alterna suavemente o fundo para facilitar o acompanhamento das linhas. */
+.horario__tabela tbody tr:nth-child(even) {
+    background-color: var(--cor-texto-05);
+}
+
+.horario__tabela tbody tr:last-child th,
+.horario__tabela tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Classe preparada para o JavaScript identificar e realçar o dia atual. */
+.horario__tabela tbody .horario__linha--atual {
+    background-color: var(--cor-destaque-18);
+    color: var(--cor-destaque);
+}
+
+/* ===== 11. FOOTER ===== */
+/* Diferencia o encerramento da página com o tom mais escuro da paleta. */
+.footer {
+    padding-block: var(--espaco-5) var(--espaco-3);
+    border-top: 1px solid var(--cor-destaque-30);
+    background-color: var(--cor-primaria);
+}
+
+/* Organiza os dois menus em colunas flexíveis e reserva a base ao copyright. */
+.footer__conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--espaco-4);
+}
+
+.footer__navegacao,
+.footer__redes {
+    flex: 1 1 280px;
+}
+
+.footer__navegacao ul,
+.footer__redes ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2) var(--espaco-3);
+}
+
+/* Mantém os links discretos e oferece retorno visual durante o hover. */
+.footer a {
+    color: var(--cor-texto-suave);
+    transition: color 200ms ease;
+}
+
+.footer a:hover {
+    color: var(--cor-destaque);
+}
+
+/* Posiciona o texto legal em uma linha própria e com menor ênfase visual. */
+.footer__copyright {
+    flex-basis: 100%;
+    padding-top: var(--espaco-3);
+    border-top: 1px solid var(--cor-texto-10);
+    color: var(--cor-texto-suave);
+    font-size: var(--texto-pequeno);
+    text-align: center;
+}
+
+/* ===== 12. RESPONSIVIDADE ===== */
+/*
+ * Tablets: reduz a densidade dos grids, empilha a seção Sobre e diminui
+ * espaçamentos para aproveitar melhor a largura intermediária.
+ */
+@media (max-width: 768px) {
+    .container {
+        padding-inline: var(--espaco-3);
+    }
+
+    .header__container {
+        justify-content: center;
+    }
+
+    .header__menu {
+        column-gap: var(--espaco-2);
+    }
+
+    .hero,
+    .sobre,
+    .servicos,
+    .equipe,
+    .galeria,
+    .depoimentos,
+    .contato,
+    .horario {
+        padding-block: var(--espaco-5);
+    }
+
+    .sobre__conteudo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--espaco-4);
+    }
+
+    .sobre__texto,
+    .sobre__figura {
+        flex-basis: auto;
+    }
+
+    .sobre__figura {
+        max-width: 100%;
+    }
+
+    .servicos__lista,
+    .equipe__lista,
+    .galeria__lista {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/*
+ * Celulares: apresenta uma coluna por grid, amplia controles de toque e
+ * substitui visualmente a navegação extensa pelo botão de menu hambúrguer.
+ */
+@media (max-width: 480px) {
+    :root {
+        --titulo-pequeno: 1.25rem;
+        --titulo-medio: 1.75rem;
+        --titulo-grande: 2.25rem;
+    }
+
+    .container {
+        padding-inline: var(--espaco-2);
+    }
+
+    .header__container {
+        justify-content: space-between;
+    }
+
+    /* Oculta o menu tradicional até o JavaScript controlar sua abertura. */
+    .header__nav {
+        display: none;
+    }
+
+    .header__nav.header__nav--aberta {
+        display: block;
+        width: 100%;
+        order: 4;
+    }
+
+    .header__nav--aberta .header__menu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header__nav--aberta .header__menu a {
+        display: block;
+        min-height: 3rem;
+        padding: 0.75rem var(--espaco-2);
+        text-align: center;
+    }
+
+    /* Desenha o ícone com três barras e garante uma área de toque confortável. */
+    .header__menu-toggle {
+        display: inline-flex;
+        width: 3rem;
+        height: 3rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 0;
+        border: 1px solid var(--cor-destaque);
+        border-radius: 4px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .header__menu-toggle span {
+        width: 1.5rem;
+        height: 2px;
+        background-color: var(--cor-destaque);
+        transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .header__menu-toggle--ativo span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .header__menu-toggle--ativo span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header__menu-toggle--ativo span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .header__agendamento {
+        order: 3;
+        width: 100%;
+    }
+
+    .servicos__lista,
+    .equipe__lista,
+    .galeria__lista {
+        grid-template-columns: 1fr;
+    }
+
+    /* Amplia as chamadas para ação para melhorar o uso por toque. */
+    .botao,
+    .agendamento-form button {
+        min-height: 3.25rem;
+        padding: 0.875rem var(--espaco-3);
+    }
+
+    .agendamento-form {
+        width: 100%;
+        max-width: none;
+        padding: var(--espaco-2);
+    }
+
+    .agendamento-form input,
+    .agendamento-form select,
+    .agendamento-form textarea {
+        min-height: 3.25rem;
+    }
+
+    .profissional-card__imagem {
+        width: 160px;
+        height: 160px;
+    }
+
+    .horario__tabela th,
+    .horario__tabela td {
+        padding: var(--espaco-2);
+    }
+}
+
+/* ===== ESTADOS CRIADOS PELO JAVASCRIPT ===== */
+.secao-oculta {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.secao-visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.campo-invalido {
+    border-color: var(--cor-apoio) !important;
+}
+
+.mensagem-erro {
+    color: var(--cor-apoio);
+    font-size: var(--texto-pequeno);
+    font-weight: 600;
+}
+
+.mensagem-sucesso {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto var(--espaco-3);
+    padding: var(--espaco-2);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 4px;
+    background-color: var(--cor-superficie);
+    color: var(--cor-primaria);
+    box-shadow: 0 0.5rem 1rem var(--sombra-escura-10);
+}
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espaco-3);
+    background-color: var(--cor-overlay-fim);
+}
+
+.lightbox-overlay.lightbox-ativo {
+    display: flex;
+}
+
+.lightbox-imagem {
+    max-width: min(90vw, 1100px);
+    max-height: 85vh;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: var(--espaco-2);
+    right: var(--espaco-2);
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--cor-destaque);
+    border-radius: 50%;
+    background-color: var(--cor-primaria);
+    color: var(--cor-destaque);
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.botao-voltar-topo {
+    position: fixed;
+    right: var(--espaco-2);
+    bottom: var(--espaco-2);
+    z-index: 900;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--cor-destaque);
+    color: var(--cor-primaria);
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(var(--espaco-2));
+    transition: opacity 200ms ease, transform 200ms ease, background-color 200ms ease;
+}
+
+.botao-voltar-topo:hover {
+    background-color: var(--cor-destaque-escura);
+}
+
+.botao-voltar-topo.visivel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* ===== 13. REFINAMENTO FINAL ===== */
+/* Mantém um indicador de foco consistente para links e botões. */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--cor-destaque-35);
+    outline-offset: 3px;
+}
+
+/* Respeita usuários que preferem reduzir movimentos na interface. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .secao-oculta {
+        opacity: 1;
+        transform: none;
+    }
+}
